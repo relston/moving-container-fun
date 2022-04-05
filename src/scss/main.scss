@@ -4,18 +4,27 @@
 }
 
 :root {
+    --max-size: 90;
+    --target-size: 100;
+    --unit: calc((var(--target-size)/var(--max-size)) * 1vmin);
     --perspective: 800;
     --rotate-x: -15;
     --rotate-y: -40;
+    --x: 0;
+    --y: 0;
+    --z: 0;
     --transform-style: preserve-3d;
-    --cuboid-width: 10;
-    --cuboid-height: 10;
-    --cuboid-depth: 10;
+    --cuboid-width: calc(80 * var(--unit));;
+    --cuboid-depth: calc(74 * var(--unit));;
+    --cuboid-height: calc(94 * var(--unit));;
+    --plane-width: 80;
+    --plane-height: 74;
     --exploded: 0;
+    
 }
 body {
     min-height: 100vh;
-    // overflow hidden
+    overflow: hidden;
     background: hsl(0, 0%, 90%);
 }
 
@@ -30,9 +39,17 @@ body {
 }
 
 .plane {
-    height: calc(var(--plane-height, 25) * 1vmin);
-    width: calc(var(--plane-width, 25) * 1vmin);
-    transform-style: var(--transform-style);
+    // height: calc(var(--plane-height, 25) * 1vmin);
+    // width: calc(var(--plane-width, 25) * 1vmin);
+    // transform-style: var(--transform-style);
+    // transform: rotateX(calc(var(--rotate-x, -24) * 1deg)) rotateY(calc(var(--rotate-y, -24) * 1deg)) rotateX(90deg) translate3d(0, 0, 0);
+    // border: 0.1vmin solid #111;
+    background: hsla(180, 50%, 50%, 0.5);
+    // height: calc(var(--plane-height, 25) * 1vmin);
+    height: calc(80 * var(--unit));
+    width: calc(78 * var(--unit));
+    // width: calc(var(--plane-width, 25) * 1vmin);
+    transform-style: preserve-3d;
     transform: rotateX(calc(var(--rotate-x, -24) * 1deg)) rotateY(calc(var(--rotate-y, -24) * 1deg)) rotateX(90deg) translate3d(0, 0, 0);
 }
 
@@ -45,6 +62,7 @@ body {
     width: calc(var(--width) * 1vmin);
     position: absolute;
     transform: translate3d(calc(var(--x, 0) * 1vmin), calc(var(--y, 0) * 1vmin), calc(var(--z, 0) * 1vmin)) rotateX(calc(var(--rotate-cuboid-x, 0) * 1deg)) rotateY(calc(var(--rotate-cuboid-y, 0) * 1deg)) rotateZ(calc(var(--rotate-cuboid-z, 0) * 1deg));
+    // transform: translate3d(0, 0, 5vmin);
     transform-style: var(--transform-style);
     
     &__side {
@@ -114,10 +132,10 @@ body {
 .cuboid {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
 }
 
 .cuboid div {
     background: hsla(90, 80%, 50%, 0.15);
-    border: 0.5vmin solid #111;
+    border: 0.1vmin solid #111;
 }

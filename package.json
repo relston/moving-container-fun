@@ -9,6 +9,7 @@
     "scss": "sass --watch src/scss/main.scss public/styles/main.css"
   },
   "dependencies": {
+    "dat.gui": "^0.7.9",
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
     "pug": "^3.0.2",
