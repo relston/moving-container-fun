@@ -1,3 +1,10 @@
+mixin cuboid(className)
+  .cuboid(class=className)
+    - let s = 0
+    while s < 6
+      .cuboid__side
+      - s++
+
 html
   head
     title= title
@@ -6,3 +13,6 @@ html
 
   body
     h1= message
+    .scene
+      .plane 
+        +cuboid()
