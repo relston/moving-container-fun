@@ -1,14 +1,17 @@
 {
   "name": "storage-test-01",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "license": "MIT",
-  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node .",
+    "dev": "nodemon . && npm run scss",
+    "scss": "sass --watch src/scss/main.scss public/styles/main.css"
   },
   "dependencies": {
     "express": "^4.17.3",
-    "pug": "^3.0.2"
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2",
+    "sass": "^1.49.11"
   }
 }
