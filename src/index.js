@@ -2,7 +2,7 @@ const express = require("express")
 const path = require("path")
 const items = require("./items.json")
 const container = {
-    name: 'Container',
+    name: 'POD Container',
     height: 94,
     width: 80,
     length: 78

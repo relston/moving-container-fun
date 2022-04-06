@@ -1,10 +1,14 @@
-mixin cuboid(item)
+mixin cuboid(item, className)
   .cuboid(
+    class= className
     style={
       '--height': item.height,
       '--width': item.width,
       '--depth': item.length
     }
+    data-height= item.height
+    data-width= item.width
+    data-depth= item.length
   )
     - let s = 0
     while s < 6
@@ -22,7 +26,7 @@ html
   body
     .scene
       .plane
-        +cuboid(container)
+        +cuboid(container, 'container')
         //- .items
         //-   each item in items
         //-     +cuboid(item)

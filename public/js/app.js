@@ -21,3 +21,12 @@ sceneFolder.add(config, 'rotate-x', 1, 180, 1).name('Rotate X').onChange(update)
 sceneFolder.add(config, 'vertical', 1, 100, 1).name('Vertical').onChange(update)
 
 update()
+
+container = document.querySelector('.container');
+// center it on plane
+xMargin = (100 - container.dataset.width) / 2; 
+yMargin = (100 - container.dataset.depth) / 2; 
+xOffset = xMargin + (container.dataset.width / 2);
+yOffset = yMargin + (container.dataset.depth / 2);
+container.style.setProperty('--x', xOffset);
+container.style.setProperty('--y', yOffset);
