@@ -10,6 +10,7 @@
     --perspective: 800;
     --rotate-x: 1;
     --rotate-y: 1;
+    --vertical: 30;
     --x: 0;
     --y: 0;
     --z: 0;
@@ -34,12 +35,17 @@ body {
 
 .plane {
     background: hsla(180, 50%, 50%, 0.5);
-    height: calc(78 * var(--unit));
-    width: calc(80 * var(--unit));
+    height: calc(100 * var(--unit));
+    width: calc(100 * var(--unit));
     transform-style: preserve-3d;
     transform: rotateX(calc(var(--rotate-x, -24) * -1deg)) 
                rotateY(calc(var(--rotate-y, -24) * -1deg)) 
-               rotateX(90deg) translate3d(0, 0, 0);
+               rotateX(90deg) 
+               translate3d(
+                   0, 
+                   0, 
+                   calc((var(--vertical) * -1) * var(--unit))
+                   );
     transition: transform 0.25s ease;
 }
 
