@@ -53,8 +53,6 @@ body {
     --x: 0;
     --y: 0;
     --z: 0;
-    height: calc(var(--height) * var(--unit));
-    width: calc(var(--width) * var(--unit));
     position: absolute;
     transform:  translate3d(calc(var(--x) * 1vmin), calc(var(--y) * 1vmin), calc(var(--z) * 1vmin)) 
                 rotateX(calc(var(--rotate-x) * 1deg)) 
@@ -68,7 +66,7 @@ body {
     
     & > div:nth-of-type(1) {
         height: calc(var(--height) * var(--unit));
-        width: 100%;
+        width: calc(var(--width) * var(--unit));
         top: 50%;
         left: 50%;
         position: absolute;
@@ -79,7 +77,7 @@ body {
     }
     & > div:nth-of-type(2) {
         height: calc(var(--height) * var(--unit));
-        width: 100%;
+        width: calc(var(--width) * var(--unit));
         top: 50%;
         left: 50%;
         position: absolute;
