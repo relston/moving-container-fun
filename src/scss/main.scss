@@ -39,6 +39,7 @@ body {
     transform: rotateX(calc(var(--rotate-x, -24) * -1deg)) 
                rotateY(calc(var(--rotate-y, -24) * -1deg)) 
                rotateX(90deg) translate3d(0, 0, 0);
+    transition: transform 0.25s ease;
 }
 
 // This is what makes the CSS variable powered cuboid
@@ -46,18 +47,23 @@ body {
     --width: 80;
     --height: 94;
     --depth: 78;
+    --rotate-x: 0;
+    --rotate-y: 0;
+    --rotate-z: 0;
+    --x: 0;
+    --y: 0;
+    --z: 0;
     height: calc(var(--height) * var(--unit));
     width: calc(var(--width) * var(--unit));
     position: absolute;
-    transform:  translate3d(calc(var(--x, 0) * 1vmin), calc(var(--y, 0) * 1vmin), calc(var(--z, 0) * 1vmin)) 
-                rotateX(calc(var(--rotate-cuboid-x, 0) * 1deg)) 
-                rotateY(calc(var(--rotate-cuboid-y, 0) * 1deg)) 
-                rotateZ(calc(var(--rotate-cuboid-z, 0) * 1deg));
+    transform:  translate3d(calc(var(--x) * 1vmin), calc(var(--y) * 1vmin), calc(var(--z) * 1vmin)) 
+                rotateX(calc(var(--rotate-x) * 1deg)) 
+                rotateY(calc(var(--rotate-y) * 1deg)) 
+                rotateZ(calc(var(--rotate-z) * 1deg));
     transform-style: var(--transform-style);
     
     &__side {
         transform-style: var(--transform-style);
-        transition: transform 0.25s ease;
     }
     
     & > div:nth-of-type(1) {
