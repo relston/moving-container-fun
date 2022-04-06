@@ -9,6 +9,7 @@ mixin cuboid(item)
     - let s = 0
     while s < 6
       .cuboid__side
+        .label= item.name
       - s++
 
 html
@@ -22,7 +23,7 @@ html
     .scene
       .plane
         +cuboid(container)
-        .items
-          each item in items
-            +cuboid(item)
+        //- .items
+        //-   each item in items
+        //-     +cuboid(item)
     script(type="text/javascript" src="/assets/js/app.js")

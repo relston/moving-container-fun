@@ -6,7 +6,7 @@ const controller = new GUI()
 const config = {
     'target-size': 30,
     'rotate-x': 20,
-    'rotate-y': 150,
+    'rotate-y': 0,
 }
 const update = () => {
     Object.entries(config).forEach(([key, value]) => {
