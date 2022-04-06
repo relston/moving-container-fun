@@ -27,7 +27,7 @@ html
     .scene
       .plane
         +cuboid(container, 'container')
-        //- .items
-        //-   each item in items
-        //-     +cuboid(item)
+        .items
+          each item in items
+            +cuboid(item, 'item')
     script(type="text/javascript" src="/assets/js/app.js")

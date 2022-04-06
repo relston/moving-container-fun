@@ -22,11 +22,18 @@ sceneFolder.add(config, 'vertical', 1, 100, 1).name('Vertical').onChange(update)
 
 update()
 
+const centerElement = el => {
+    xMargin = (100 - el.dataset.width) / 2; 
+    yMargin = (100 - el.dataset.depth) / 2; 
+    xOffset = xMargin + (el.dataset.width / 2);
+    yOffset = yMargin + (el.dataset.depth / 2);
+    el.style.setProperty('--x', xOffset);
+    el.style.setProperty('--y', yOffset);
+}
 container = document.querySelector('.container');
 // center it on plane
-xMargin = (100 - container.dataset.width) / 2; 
-yMargin = (100 - container.dataset.depth) / 2; 
-xOffset = xMargin + (container.dataset.width / 2);
-yOffset = yMargin + (container.dataset.depth / 2);
-container.style.setProperty('--x', xOffset);
-container.style.setProperty('--y', yOffset);
+centerElement(container);
+
+items = document.querySelectorAll('.item')
+items.forEach(centerElement)
+// Now I want to scatter them around the container
