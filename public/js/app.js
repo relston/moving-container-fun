@@ -23,17 +23,33 @@ sceneFolder.add(config, 'vertical', 1, 100, 1).name('Vertical').onChange(update)
 update()
 
 const centerElement = el => {
-    xMargin = (100 - el.dataset.width) / 2; 
-    yMargin = (100 - el.dataset.depth) / 2; 
-    xOffset = xMargin + (el.dataset.width / 2);
-    yOffset = yMargin + (el.dataset.depth / 2);
-    el.style.setProperty('--x', xOffset);
-    el.style.setProperty('--y', yOffset);
+    // xMargin = (100 - el.dataset.width) / 2; 
+    // yMargin = (100 - el.dataset.depth) / 2; 
+    // xOffset = xMargin + (el.dataset.width / 2);
+    // yOffset = yMargin + (el.dataset.depth / 2);
+    el.style.setProperty('--x', 50);
+    el.style.setProperty('--y', 50);
 }
 container = document.querySelector('.container');
 // center it on plane
 centerElement(container);
 
 items = document.querySelectorAll('.item')
-items.forEach(centerElement)
+// items.forEach(centerElement)
 // Now I want to scatter them around the container
+const placeAround = (el, angle) => {
+    radius = 100;
+    Cx = 50;
+    Cy = 50
+    x=Cx+(radius*Math.cos((angle+(-90))*(Math.PI/180)));
+    y=Cy+(radius*Math.sin((angle+(-90))*(Math.PI/180)));
+    el.style.setProperty('--x', x);
+    el.style.setProperty('--y', y);
+}
+
+items.forEach((item, index, items) => {
+    total = items.length;
+    angleUnit = 360 / total;
+    angle = angleUnit * index;
+    placeAround(item, angle);
+});
